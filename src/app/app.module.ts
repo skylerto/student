@@ -6,12 +6,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { MainComponent } from './main/main.component';
+import { MarkComponent } from './mark/mark.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SideBarComponent,
-    MainComponent
+    MainComponent,
+    MarkComponent
   ],
   imports: [
     BrowserModule,

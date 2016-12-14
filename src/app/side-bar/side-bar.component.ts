@@ -25,13 +25,32 @@ export class SideBarComponent implements OnInit {
   stubCourses(): Array<Course> {
     let res = new Array();
     let c = new Course();
+    c.marks = new Array();
     c.title = 'Physics';
     c.code = 'PHYS1000';
+
     let m = new Mark();
     m.title = 'Test 1';
     m.weight = 0.1;
     m.mark = 0.8;
-    c.marks = new Array();
+    c.marks.push(m);
+
+    m = new Mark();
+    m.title = 'Test 2';
+    m.weight = 0.1;
+    m.mark = 0.9;
+    c.marks.push(m);
+
+    m = new Mark();
+    m.title = 'Test 3';
+    m.weight = 0.15;
+    m.mark = 0.9;
+    c.marks.push(m);
+
+    m = new Mark();
+    m.title = 'Exam';
+    m.weight = 0.65;
+    m.mark = 0.4;
     c.marks.push(m);
 
     res.push(c);

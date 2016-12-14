@@ -1,7 +1,26 @@
-<div *ngIf="currentCourse">
-  <h1>{{ currentCourse.title }}</h1>
-  <h2>{{ currentCourse.code }}</h2>
-  <div *ngFor="let mark of currentCourse.marks">
-    {{ mark.title }}
+  <div *ngIf="currentCourse">
+    <h1>{{ currentCourse.title }}</h1>
+    <h2>{{ currentCourse.code }}</h2>
+    <table class="table-striped">
+      <thead>
+        <th>
+          <h4>Title</h4>
+        </th>
+        <th>
+          <h4>Weight (in decimal)</h4>
+        </th>
+        <th>
+          <h4>Mark (in decimal)</h4>
+        </th>
+        <th>
+          <h4>Grade Contribution</h4>
+        </th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mark of currentCourse.marks" [app-mark]="mark" (click)="$event.preventDefault()"></tr>
+      </tbody>
+    </table>
+  <!-- New Mark -->
+
+
   </div>
-</div>
