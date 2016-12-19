@@ -22,6 +22,10 @@ export class SideBarComponent implements OnInit {
     this.onCourseSelected.emit(course);
   }
 
+  newCourse() {
+    this.onCourseSelected.emit(new Course());
+  }
+
   stubCourses(): Array<Course> {
     let res = new Array();
     let c = new Course();

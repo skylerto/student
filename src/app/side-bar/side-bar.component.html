@@ -1,5 +1,11 @@
 <nav class="nav-group">
-  <h5 class="nav-group-title">Courses</h5>
+  <h5 class="nav-group-title">
+    Courses
+    <span class="pull-right" (click)="newCourse()">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+    </span>
+  </h5>
+
   <a class="nav-group-item" *ngFor="let course of courses" [ngClass]="{ 'active': currentCourse === course }" (click)="courseSelected(course)">
     {{ course.title }}
   </a>
