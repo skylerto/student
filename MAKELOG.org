@@ -1,0 +1,17 @@
+* Make Log
+
+  or, the steps I took to produce this Frontend.
+
+** Angular 2
+
+   Angular 2, not 1.x, because the component model is much better than some hacked vanilla ES4 crap. You can read more about [[http://learnangular2.com/][Angular2 and Components]].
+
+*** Started by generating a new components and models.
+
+#+BEGIN_SRC bash
+$ ng new student
+$ ng generate component side-bar
+$ ng generate component main
+$ ng generate model mark
+$ ng generate model course
+#+END_SRC
