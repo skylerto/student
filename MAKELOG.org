@@ -15,3 +15,12 @@ $ ng generate component main
 $ ng generate model mark
 $ ng generate model course
 #+END_SRC
+
+*** Downloading 'Vendor Assets'
+    Assests are /static/ javascript, css, and font files. A vendor is someone who isn't you. Vendor assets are statis css, js, and font files which will be used by the porject.
+
+**** Vendor Asset Sources:
+     - [[https://jquery.com/][JQuery]]: A javascript UI library.
+     - [[http://getbootstrap.com/][Bootstrap]]: A css framework.
+     - [[http://fontawesome.io/][Font Awesome]]: Awesome icons.
+     - [[photonkit.com][Photon Kit]]: Another css framework.
