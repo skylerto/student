@@ -1,0 +1,20 @@
+input, label {
+  margin: 0.5em 0;
+}
+
+.title-label {
+  font-size: 24px;
+}
+.title-input {
+  font-size: 24px;
+}
+.code-label {
+  font-size: 20px;
+}
+.code-input {
+  font-size: 20px;
+}
+
+.static {
+  margin-right: 10px;
+}

@@ -23,7 +23,10 @@ export class SideBarComponent implements OnInit {
   }
 
   newCourse() {
-    this.onCourseSelected.emit(new Course());
+    let course = new Course();
+    course.title = 'New Course';
+    this.courses.push(course);
+    this.onCourseSelected.emit(course);
   }
 
   stubCourses(): Array<Course> {

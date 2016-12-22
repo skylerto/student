@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Course } from '../models';
+import { Course, Mark } from '../models';
 
 @Component({
   selector: 'app-main',
@@ -13,6 +13,11 @@ export class MainComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  newMark() {
+    let mark = new Mark();
+    this.currentCourse.marks.push(mark);
   }
 
 }

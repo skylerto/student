@@ -1,37 +1,50 @@
   <div *ngIf="currentCourse">
     <div>
-      <label *ngIf="!isTitleEdit" (click)="isTitleEdit=true" from="title">
+<label class="title-label static">Course Title: </label>
+      <label class="title-label" *ngIf="!isTitleEdit" (click)="isTitleEdit=true" from="title">
         {{ currentCourse.title || 'Title' }}
       </label>
-      <input *ngIf="isTitleEdit" (keydown.enter)="isTitleEdit=false" type="text" [(ngModel)]="currentCourse.title "/>
+      <input class="title-input" *ngIf="isTitleEdit" (keydown.enter)="isTitleEdit=false" (focusout)="isTitleEdit=false" type="text" [(ngModel)]="currentCourse.title "/>
     </div>
 
     <div>
-      <label *ngIf="!isCodeEdit" (click)="isCodeEdit=true" from="title">
+<label class="code-label static">Course Code: </label>
+      <label class="code-label" *ngIf="!isCodeEdit" (click)="isCodeEdit=true" from="title">
         {{ currentCourse.code || 'Code' }}
       </label>
-      <input *ngIf="isCodeEdit" (keydown.enter)="isCodeEdit=false" type="text" [(ngModel)]="currentCourse.code"/>
+      <input class="code-input" *ngIf="isCodeEdit" (keydown.enter)="isCodeEdit=false" (focusout)="isCodeEdit=false" type="text" [(ngModel)]="currentCourse.code"/>
     </div>
-    <table class="table-striped">
-      <thead>
-        <th>
-          <h4>Title</h4>
-        </th>
-        <th>
-          <h4>Weight (in decimal)</h4>
-        </th>
-        <th>
-          <h4>Mark (in decimal)</h4>
-        </th>
-        <th>
-          <h4>Grade Contribution</h4>
-        </th>
-      </thead>
-      <tbody>
-        <tr *ngFor="let mark of currentCourse.marks" [app-mark]="mark" (click)="$event.preventDefault()"></tr>
-      </tbody>
-    </table>
-  <!-- New Mark -->
+    <hr/>
+    <div class="">
+      <div class="">
+        <h3>Marks</h3>
+        <table class="table-striped ">
+          <thead>
+            <th>
+              <h4>Title</h4>
+            </th>
+            <th>
+              <h4>Weight (in decimal)</h4>
+            </th>
+            <th>
+              <h4>Mark (in decimal)</h4>
+            </th>
+            <th>
+              <h4>Grade Contribution</h4>
+            </th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let mark of currentCourse.marks" [app-mark]="mark" (click)="$event.preventDefault()"></tr>
+          </tbody>
+        </table>
+      <!-- New Mark -->
+      <div class="pull-right">
+        <button (click)="newMark()" class="btn btn-positive">
+          New Mark
+        </button>
+      </div>
+    </div>
+  </div>
 
 
   </div>
