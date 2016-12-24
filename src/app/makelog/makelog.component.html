@@ -1,0 +1,101 @@
+<div class="content">
+  <div class="title">
+    <h2>Make Log</h2>
+  </div>
+
+    <p>or, the steps I took to produce this Frontend.</p>
+
+  <div class="title">
+    <h3>Angular 2</h3>
+  </div>
+
+  <p>
+    Angular 2, not 1.x, because the component model is much better than some hacked vanilla ES4 crap.
+    You can read more about <a href="http://learnangular2.com/">Angular2 and Components</a>.
+  </p>
+
+  <div class="title">
+    <h4>
+      Started by generating a new components and models
+    </h4>
+  </div>
+
+  <pre>
+    $ ng new student
+    $ ng generate component side-bar
+    $ ng generate component main
+    $ ng generate model mark
+    $ ng generate model course
+    $ ng generate service course
+    $ ng generate componet engineering
+    $ ng generate componet makelog
+  </pre>
+
+  <div class="title">
+    <h4>
+      Downloading 'Vendor Assets'
+    </h4>
+  </div>
+  <p>
+      Assests are /static/ javascript, css, and font files. A vendor is someone who isn't you.
+      Vendor assets are statis css, js, and font files which will be used by the project.
+  </p>
+
+  <div class="title">
+    <h5>
+      Vendor Asset Sources:
+    </h5>
+  </div>
+  <ul>
+    <li>
+      <a href="https://jquery.com/">JQuery</a>: A javascript UI library.
+    </li>
+    <li>
+      <a href="http://fontawesome.io/">Font Awesome</a>: Awesome icons.
+    </li>
+    <li>
+      <a href="photonkit.com">Photon Kit</a>: css framework.
+    </li>
+    <li>
+      <a href="http://electron.atom.io/">Electron</a>: Util for building native desktop apps in web technologies.
+    </li>
+  </ul>
+
+  <div class="title">
+    <h4>
+  Start Coding
+    </h4>
+  </div>
+  <p>
+      Angular2 uses the component model so which is essentually an MVC (model view controller), e.g. mark.ts is the model,
+      mark.component.html is the view, and mark.component.ts is the controller.
+  </p>
+
+  <div class="title">
+    <h5>
+      Wrote the Models
+    </h5>
+  </div>
+  <p>
+      In each model (course, mark) we have all the variables we need to model a domain specific Mark, and Course.
+      These models transition down into the properties of a database.
+  </p>
+
+  <div class="title">
+    <h5>
+      Wrote the Components
+    </h5>
+  </div>
+  <p>
+      In the component we control the data for our templates, this is where we call out to our services to get/save data
+      from our view. We can also do some manipulations here like display error messages etc.
+  </p>
+  <div class="title">
+    <h5>
+      Write the Templates
+    </h5>
+  </div>
+
+      Here we place /bindings/ and interact with the component, to inject variables into the template we use mustaches <pre>{{ variableName }}</pre> we can also add events to any HTML element. For example <pre>(click), (keydown.enter), (focusout)</pre> were can call a function from the component; the templates are chalked full of these.
+
+</div>

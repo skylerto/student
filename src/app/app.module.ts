@@ -9,6 +9,7 @@ import { MainComponent } from './main/main.component';
 import { MarkComponent } from './mark/mark.component';
 import { CourseService } from './course.service';
 import { EngineeringComponent } from './engineering/engineering.component';
+import { MakelogComponent } from './makelog/makelog.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { EngineeringComponent } from './engineering/engineering.component';
     SideBarComponent,
     MainComponent,
     MarkComponent,
-    EngineeringComponent
+    EngineeringComponent,
+    MakelogComponent
   ],
   imports: [
     BrowserModule,

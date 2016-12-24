@@ -4,7 +4,8 @@
 
 ** Angular 2
 
-   Angular 2, not 1.x, because the component model is much better than some hacked vanilla ES4 crap. You can read more about [[http://learnangular2.com/][Angular2 and Components]].
+   Angular 2, not 1.x, because the component model is much better than some hacked vanilla ES4 crap.
+   You can read more about [[http://learnangular2.com/][Angular2 and Components]].
 
 *** Started by generating a new components and models.
 
@@ -14,13 +15,34 @@ $ ng generate component side-bar
 $ ng generate component main
 $ ng generate model mark
 $ ng generate model course
+$ ng generate service course
+$ ng generate componet engineering
+$ ng generate componet makelog
 #+END_SRC
 
 *** Downloading 'Vendor Assets'
-    Assests are /static/ javascript, css, and font files. A vendor is someone who isn't you. Vendor assets are statis css, js, and font files which will be used by the porject.
+    Assests are /static/ javascript, css, and font files. A vendor is someone who isn't you.
+    Vendor assets are statis css, js, and font files which will be used by the project.
 
 **** Vendor Asset Sources:
      - [[https://jquery.com/][JQuery]]: A javascript UI library.
      - [[http://getbootstrap.com/][Bootstrap]]: A css framework.
      - [[http://fontawesome.io/][Font Awesome]]: Awesome icons.
      - [[photonkit.com][Photon Kit]]: Another css framework.
+
+*** Start Coding
+    Angular2 uses the component model so which is essentually an MVC (model view controller), e.g. mark.ts is the model,
+    mark.component.html is the view, and mark.component.ts is the controller.
+
+**** Wrote the Models
+     In each model ([[./src/app/models/course.ts][course]], [[./src/app/models/mark.ts][mark]]) we have all the variables we need to model a domain specific Mark, and Course.
+     These models transition down into the properties of a database.
+
+**** Wrote the Components
+     In the component we control the data for our templates, this is where we call out to our services to get/save data
+     from our view. We can also do some manipulations here like display error messages etc.
+
+**** Write the Templates
+     Here we place /bindings/ and interact with the component, to inject variables into the template we use mustaches
+     ={{ variableName }}= we can also add events to any HTML element. For example =(click), (keydown.enter), (focusout)=
+     were can call a function from the component; the templates are chalked full of these.

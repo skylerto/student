@@ -7,6 +7,11 @@
       <span class="icon icon-tools"></span> Engineering
     </a>
   </div>
+  <div>
+    <a class="nav-group-item" (click)="selectedPage('makelog')" [ngClass]="{ 'active': page === 'makelog' }">
+     <span class="icon icon-code"></span> Makelog
+    </a>
+  </div>
   <h5 class="nav-group-title">
     Courses
     <span class="pull-right" (click)="newCourse()">
