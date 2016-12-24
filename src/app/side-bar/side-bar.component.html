@@ -12,6 +12,16 @@
      <span class="icon icon-code"></span> Makelog
     </a>
   </div>
+  <div>
+    <a class="nav-group-item" (click)="selectedPage('usage')" [ngClass]="{ 'active': page === 'usage' }">
+     <span class="icon icon-info"></span> Usage
+    </a>
+  </div>
+  <div>
+    <a class="nav-group-item" (click)="selectedPage('stats')" [ngClass]="{ 'active': page === 'stats' }">
+     <span class="icon icon-gauge"></span> Stats
+    </a>
+  </div>
   <h5 class="nav-group-title">
     Courses
     <span class="pull-right" (click)="newCourse()">

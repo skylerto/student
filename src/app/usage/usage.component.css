@@ -1,0 +1,12 @@
+h2 {
+  margin: 0;
+}
+
+.title {
+  text-align: left;
+}
+
+.content {
+  height: 490px;
+  overflow: auto;
+}

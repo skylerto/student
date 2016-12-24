@@ -10,6 +10,8 @@ import { MarkComponent } from './mark/mark.component';
 import { CourseService } from './course.service';
 import { EngineeringComponent } from './engineering/engineering.component';
 import { MakelogComponent } from './makelog/makelog.component';
+import { UsageComponent } from './usage/usage.component';
+import { StatsComponent } from './stats/stats.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { MakelogComponent } from './makelog/makelog.component';
     MainComponent,
     MarkComponent,
     EngineeringComponent,
-    MakelogComponent
+    MakelogComponent,
+    UsageComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,

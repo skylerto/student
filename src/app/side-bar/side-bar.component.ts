@@ -25,7 +25,10 @@ export class SideBarComponent implements OnInit {
     });
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.page = 'usage';
+    this.onCourseSelected.emit(this.page);
+  }
 
   courseSelected(course: Course) {
     this.page = undefined;
