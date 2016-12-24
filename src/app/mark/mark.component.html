@@ -1,15 +1,16 @@
 <td class="row mark-title">
-  <label *ngIf="!isTitleEdit" (click)="isTitleEdit=true" from="title">{{ mark.title }}</label>
-  <input *ngIf="isTitleEdit" (keydown.enter)="isTitleEdit=false" type="text" [(ngModel)]="mark.title"/>
+  <label *ngIf="!isTitleEdit" (click)="isTitleEdit=true" from="title">{{ mark.title || 'Mark Title' }}</label>
+  <input *ngIf="isTitleEdit" (keydown.enter)="isTitleEdit=false" (focusout)="isTitleEdit=false" type="text" [(ngModel)]="mark.title"/>
 </td>
-<td class="row mark-weight">
-  <label *ngIf="!isWeightEdit" (click)="isWeightEdit=true" from="weight">{{ mark.weight }}</label>
-  <input *ngIf="isWeightEdit" (keydown.enter)="isWeightEdit=false" type="text" [(ngModel)]="mark.weight"/>
+<td class="row mark-weight number">
+  <label *ngIf="!isWeightEdit" (click)="isWeightEdit=true" from="weight">{{ mark.weight || '1' }}</label>
+  <input *ngIf="isWeightEdit" (keydown.enter)="isWeightEdit=false" (focusout)="isWeightEdit=false" type="text" [(ngModel)]="mark.weight"/>
 </td>
-<td class="row mark-mark">
-  <label *ngIf="!isMarkEdit" (click)="isMarkEdit=true" from="mark">{{ mark.mark }}</label>
-  <input *ngIf="isMarkEdit" (keydown.enter)="isMarkEdit=false" type="text" [(ngModel)]="mark.mark"/>
+<td class="row mark-mark number">
+  <label *ngIf="!isMarkEdit" (click)="isMarkEdit=true" from="mark">{{ mark.mark  || '1' }}</label>
+  <input *ngIf="isMarkEdit" (keydown.enter)="isMarkEdit=false" (focusout)="isMarkEdit=false" type="text" [(ngModel)]="mark.mark"/>
 </td>
-<td class="row mark-grade">
-  <label>{{ calculateGrade() }}</label>
+<td class="row mark-grade number">
+  <label>{{ calculateGrade() | number:'1.3' }}</label>
 </td>
+<td align="center"><button (click)="delete()" class="btn btn-default"><span class="icon icon-trash"></span></button></td>

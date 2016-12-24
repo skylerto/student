@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { CourseService } from '../course.service';
 import { Mark } from '../models';
 
 @Component({
@@ -9,13 +10,30 @@ import { Mark } from '../models';
 export class MarkComponent implements OnInit {
 
   @Input('app-mark') mark: Mark;
+  @Output() changedMark = new EventEmitter();
 
-  constructor() { }
+  constructor(
+    private courseService: CourseService
+  ) { }
 
   ngOnInit() { }
 
   calculateGrade() {
-    return this.mark.weight * this.mark.mark;
+    this.mark.contribution = this.mark.weight * this.mark.mark;
+    if (this.mark.contribution) {
+      return this.mark.contribution;
+    } else {
+      return 0;
+    }
+  }
+
+  delete() {
+    this.courseService.deleteMark(this.mark).subscribe((res) => {
+      this.changedMark.emit({
+        change: 'delete',
+        mark: this.mark
+      });
+    });
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { CourseService } from '../course.service';
 import { Course, Mark } from '../models';
 
 @Component({
@@ -11,56 +12,37 @@ export class SideBarComponent implements OnInit {
   @Input() currentCourse: Course;
   @Output() onCourseSelected = new EventEmitter();
   private courses: Array<Course>;
+  private loading: boolean;
+  private page: string;
 
-  constructor() {
-    this.courses = this.stubCourses();
+  constructor(
+    private courseService: CourseService
+  ) {
+    this.loading = true;
+    this.courseService.getCourses().subscribe((res) => {
+      this.courses = <Array<Course>> res;
+      this.loading = false;
+    });
   }
 
   ngOnInit() { }
 
   courseSelected(course: Course) {
+    this.page = undefined;
     this.onCourseSelected.emit(course);
   }
 
   newCourse() {
     let course = new Course();
     course.title = 'New Course';
+    course.marks = new Array();
     this.courses.push(course);
+    this.currentCourse = course;
     this.onCourseSelected.emit(course);
   }
 
-  stubCourses(): Array<Course> {
-    let res = new Array();
-    let c = new Course();
-    c.marks = new Array();
-    c.title = 'Physics';
-    c.code = 'PHYS1000';
-
-    let m = new Mark();
-    m.title = 'Test 1';
-    m.weight = 0.1;
-    m.mark = 0.8;
-    c.marks.push(m);
-
-    m = new Mark();
-    m.title = 'Test 2';
-    m.weight = 0.1;
-    m.mark = 0.9;
-    c.marks.push(m);
-
-    m = new Mark();
-    m.title = 'Test 3';
-    m.weight = 0.15;
-    m.mark = 0.9;
-    c.marks.push(m);
-
-    m = new Mark();
-    m.title = 'Exam';
-    m.weight = 0.65;
-    m.mark = 0.4;
-    c.marks.push(m);
-
-    res.push(c);
-    return res;
+  selectedPage(page: string) {
+    this.page = page;
+    this.onCourseSelected.emit(page);
   }
 }

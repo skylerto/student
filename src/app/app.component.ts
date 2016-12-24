@@ -7,10 +7,17 @@ import { Course } from './models';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
   private currentCourse: Course;
+  private page: string;
 
-  courseSelected(course: Course) {
-    this.currentCourse = course;
+  courseSelected(input) {
+    if (typeof input === 'string') {
+      this.currentCourse = undefined;
+      this.page = input;
+    } else {
+      console.log(input);
+      this.page = undefined;
+      this.currentCourse = input;
+    }
   }
 }

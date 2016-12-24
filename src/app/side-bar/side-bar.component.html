@@ -1,12 +1,24 @@
 <nav class="nav-group">
   <h5 class="nav-group-title">
+    Notes
+  </h5>
+  <div>
+    <a class="nav-group-item" (click)="selectedPage('engineering')" [ngClass]="{ 'active': page === 'engineering' }">
+      <span class="icon icon-tools"></span> Engineering
+    </a>
+  </div>
+  <h5 class="nav-group-title">
     Courses
     <span class="pull-right" (click)="newCourse()">
       <i class="fa fa-plus" aria-hidden="true"></i>
     </span>
   </h5>
 
-  <a class="nav-group-item" *ngFor="let course of courses" [ngClass]="{ 'active': currentCourse === course }" (click)="courseSelected(course)">
-    {{ course.title }}
-  </a>
+  <div *ngIf="loading">
+  </div>
+  <div *ngIf="!loading && courses">
+    <a class="nav-group-item" *ngFor="let course of courses" [ngClass]="{ 'active': currentCourse === course }" (click)="courseSelected(course)">
+      <span class="icon icon-book-open"></span> {{ course.title }}
+    </a>
+  </div>
 </nav>

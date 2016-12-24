@@ -2,9 +2,5 @@
   <div class="pane-sm sidebar">
     <app-side-bar [currentCourse]="currentCourse" (onCourseSelected)="courseSelected($event)"></app-side-bar>
   </div>
-  <div class="pane">
-    <div class="padded-more">
-      <app-main [currentCourse]="currentCourse"></app-main>
-    </div>
-  </div>
+  <app-main [currentCourse]="currentCourse" [page]="page"></app-main>
 </div>
